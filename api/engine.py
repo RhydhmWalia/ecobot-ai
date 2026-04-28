@@ -6,7 +6,10 @@ from dotenv import load_dotenv, find_dotenv
 conversations = {}
 
 def get_chat_response(message, session_id="default"):
-    load_dotenv(find_dotenv(), override=True)
+    # Load .env only if running locally (Vercel provides env vars automatically)
+    if not os.getenv("XAI_API_KEY"):
+        load_dotenv(find_dotenv())
+    
     API_KEY = os.getenv("XAI_API_KEY")
 
     url = "https://api.groq.com/openai/v1/chat/completions"

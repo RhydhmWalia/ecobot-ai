@@ -10,6 +10,7 @@ app = Flask(__name__, static_folder=frontend_dir, static_url_path='')
 # Enable CORS for all routes so the frontend can communicate with the backend
 CORS(app)
 
+@app.route('/', methods=['POST'])
 @app.route('/chat', methods=['POST'])
 def chat():
     # Handle empty or invalid requests
@@ -32,10 +33,7 @@ def chat():
 
     return jsonify({"response": result})
 
-@app.route("/")
-def home():
-    # Serve the frontend index.html
-    return send_from_directory(app.static_folder, 'index.html')
+
 
 if __name__ == '__main__':
     # Run the Flask app on localhost, port 5000

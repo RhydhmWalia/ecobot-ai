@@ -2,8 +2,8 @@ services:
   - type: web
     name: ecobot-ai
     env: python
-    buildCommand: "pip install -r backend/requirements.txt"
-    startCommand: "cd backend && gunicorn app:app"
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn api.index:app"
     envVars:
       - key: XAI_API_KEY
         sync: false

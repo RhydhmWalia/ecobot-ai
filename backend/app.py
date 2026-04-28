@@ -1,8 +1,12 @@
-from flask import Flask, request, jsonify
+import os
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from api import get_chat_response
 
-app = Flask(__name__)
+# Point static folder to frontend directory
+frontend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'frontend'))
+app = Flask(__name__, static_folder=frontend_dir, static_url_path='')
+
 # Enable CORS for all routes so the frontend can communicate with the backend
 CORS(app)
 
@@ -28,10 +32,11 @@ def chat():
 
     return jsonify({"response": result})
 
-if __name__ == '__main__':
-    # Run the Flask app on localhost, port 5000
-    app.run(debug=True, host='localhost', port=5000)
-
 @app.route("/")
 def home():
-    return "Backend is running"
+    # Serve the frontend index.html
+    return send_from_directory(app.static_folder, 'index.html')
+
+if __name__ == '__main__':
+    # Run the Flask app on localhost, port 5000
+    app.run(debug=True, host='0.0.0.0', port=5000)

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoBot - NextGen Carbon Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Background Animated Orbs -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="ai-app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <span class="logo-icon">🌿</span>
+                </div>
+                <span class="logo-text">EcoBot <span class="badge">AI</span></span>
+            </div>
+
+            <button class="new-chat-btn" id="new-chat-btn">
+                <div class="btn-glow"></div>
+                <span>+ New calculation</span>
+            </button>
+
+            <div class="recent-chats" id="recent-chats-container">
+                <p class="section-title">RECENT ACTIVITY</p>
+                <!-- History items will be injected here via JS -->
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Eco" alt="User" />
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Eco Warrior</span>
+                        <span class="user-status">Free Plan</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-nav glass-panel-top">
+                <div class="model-selector">
+                    EcoBot<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+
+                <div class="api-status">
+                    <span class="status-ping"></span>
+                    <span class="api-text">Powered by Groq API</span>
+                </div>
+            </header>
+
+            <div class="chat-container">
+                <div class="chat-window" id="chat-window">
+                    <div class="welcome-container" id="welcome-container">
+                        <div class="welcome-logo-wrapper">
+                            <div class="welcome-logo">🌱</div>
+                            <div class="ripple"></div>
+                            <div class="ripple delay"></div>
+                        </div>
+                        <h2 class="gradient-text">How can I help you today?</h2>
+                        <p class="welcome-subtext">Discover your environmental impact and learn how to reduce it.</p>
+
+                        <div class="suggestion-chips">
+                            <button class="chip">What is a carbon footprint?</button>
+                            <button class="chip">Calculate my footprint</button>
+                            <button class="chip">Tips for eco-friendly travel</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-container-wrapper">
+                    <div class="input-area glass-input">
+                        <input type="text" id="user-input" placeholder="Ask EcoBot anything..." autocomplete="off">
+                        <button id="send-btn" aria-label="Send message">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="disclaimer">EcoBot is powered by advanced AI. Verified environmental data is recommended
+                        for critical decisions.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
